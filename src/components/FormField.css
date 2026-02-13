@@ -1,0 +1,22 @@
+.form-field {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.required-indicator {
+  color: var(--color-error);
+  margin-left: 4px;
+}
+
+.field-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  margin-top: 0;
+}

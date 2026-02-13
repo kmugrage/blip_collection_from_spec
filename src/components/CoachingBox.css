@@ -1,0 +1,80 @@
+.coaching-box {
+  background-color: #fff9f0;
+  border-left: 4px solid var(--color-warning);
+  padding: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-sm);
+}
+
+.coaching-box h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-warning);
+  font-size: var(--font-size-lg);
+}
+
+.coaching-content p {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.coaching-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Markdown content styling */
+.coaching-content h1,
+.coaching-content h2,
+.coaching-content h3,
+.coaching-content h4 {
+  color: var(--color-text);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.coaching-content h1 {
+  font-size: var(--font-size-lg);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-xs);
+}
+
+.coaching-content h2 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.coaching-content ul,
+.coaching-content ol {
+  margin-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.coaching-content li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.6;
+}
+
+.coaching-content strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.coaching-content em {
+  font-style: italic;
+}
+
+.coaching-content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.coaching-content blockquote {
+  border-left: 3px solid var(--color-warning);
+  padding-left: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  color: var(--color-text-light);
+  font-style: italic;
+}
