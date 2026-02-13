@@ -31,8 +31,22 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    - name: Cache radar data
+      uses: actions/cache@v4
+      with:
+        path: data/radar
+        key: radar-data-${{ hashFiles('scripts/fetch-radar-data.ts') }}
+        restore-keys: |
+          radar-data-
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Fetch radar data
+      run: npm run fetch-radar-data || echo "Using cached data"
+
+    - name: Build application
+      run: npm run build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3

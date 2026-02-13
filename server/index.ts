@@ -59,7 +59,7 @@ app.use(express.json({ limit: '10mb' }));
 /**
  * Health check endpoint
  */
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (_req, res) => {
   const health = {
     status: 'ok',
     timestamp: new Date().toISOString(),
@@ -75,7 +75,7 @@ app.get('/api/health', (req, res) => {
 /**
  * Storage statistics (for debugging)
  */
-app.get('/api/stats', (req, res) => {
+app.get('/api/stats', (_req, res) => {
   try {
     const stats = getStorageStats();
     res.json({
@@ -224,7 +224,7 @@ app.post('/api/submit', async (req, res) => {
 /**
  * 404 handler
  */
-app.use((req, res) => {
+app.use((_req, res) => {
   res.status(404).json({
     success: false,
     message: 'Endpoint not found'

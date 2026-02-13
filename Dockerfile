@@ -14,6 +14,9 @@ RUN npm ci
 # Copy source code
 COPY . .
 
+# Fetch radar data (needed for build)
+RUN npm run fetch-radar-data || echo "Radar data not available"
+
 # Build frontend
 RUN npm run build:client
 
@@ -29,8 +32,12 @@ COPY tsconfig*.json ./
 # Install dependencies (including devDependencies for build)
 RUN npm ci
 
-# Copy server source
+# Copy server source and scripts
 COPY server ./server
+COPY scripts ./scripts
+
+# Fetch radar data (needed for build)
+RUN npm run fetch-radar-data || echo "Radar data not available"
 
 # Build backend
 RUN npm run build:server
@@ -50,8 +57,8 @@ COPY --from=frontend-builder /app/dist ./dist/client
 # Copy built backend from backend-builder
 COPY --from=backend-builder /app/dist/server ./dist/server
 
-# Copy radar data
-COPY data/radar ./data/radar
+# Copy radar data from frontend-builder (since both fetch it, use one source)
+COPY --from=frontend-builder /app/data/radar ./data/radar
 
 # Create data directory for submissions
 RUN mkdir -p /app/data && chown -R node:node /app/data
