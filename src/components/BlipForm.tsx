@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Quadrant, Ring, QUADRANTS, RINGS, ValidationError, SubmissionType, PriorRadarBlip } from '../types';
 import { lookupPriorRadar, getCoaching, submitBlip } from '../services/api';
 import FormField from './FormField';
@@ -47,6 +47,7 @@ const BlipForm = ({ onSuccess }: BlipFormProps) => {
     }, 1000);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.name, formData.quadrant, formData.ring, formData.description, formData.clientExamples, formData.cautionReasoning]);
 
   // Check for prior radar match when name changes
@@ -61,6 +62,7 @@ const BlipForm = ({ onSuccess }: BlipFormProps) => {
     }, 800);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.name]);
 
   const checkPriorRadar = async () => {

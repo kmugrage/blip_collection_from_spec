@@ -42,6 +42,7 @@ async function acquireLock(): Promise<void> {
   const lockPath = getLockPath();
   const startTime = Date.now();
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     try {
       // Try to create lock file exclusively

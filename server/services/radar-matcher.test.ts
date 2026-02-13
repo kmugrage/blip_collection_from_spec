@@ -133,8 +133,6 @@ describe('RadarMatcher', () => {
     it('should handle punctuation variations', () => {
       const result1 = findPriorRadarMatch('React');
       const result2 = findPriorRadarMatch('React!');
-      const result3 = findPriorRadarMatch('React?');
-      const result4 = findPriorRadarMatch('Re-act');
 
       // Punctuation should be stripped, so results should be similar
       if (result1) {

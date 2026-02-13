@@ -84,6 +84,7 @@ describe('Validation Service', () => {
     });
 
     it('should validate quadrant values', () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const errors = validateSubmission({ ...validBase, quadrant: 'invalid' as any });
       expect(errors.some(e => e.field === 'quadrant')).toBe(true);
     });
@@ -97,6 +98,7 @@ describe('Validation Service', () => {
     });
 
     it('should validate ring values', () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const errors = validateSubmission({ ...validBase, ring: 'invalid' as any });
       expect(errors.some(e => e.field === 'ring')).toBe(true);
     });
@@ -216,6 +218,7 @@ describe('Validation Service', () => {
     it('should return validation errors for invalid input', () => {
       const input: Partial<BlipSubmission> = {
         name: '',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         quadrant: 'invalid' as any,
         ring: 'adopt',
         description: 'Test'
